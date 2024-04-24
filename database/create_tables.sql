@@ -14,6 +14,13 @@ CREATE TABLE IF NOT EXISTS modules (
   PRIMARY KEY (module_id)
 );
 
+CREATE TABLE if NOT EXISTS courses (
+    course_id INT NOT NUll,
+    description VARCHAR(250) NOT NULL,
+    degree VARCHAR(250) NOT NULL,
+    PRIMARY KEY (course_id)
+);
+
 CREATE TABLE if NOT EXISTS signUp (
   student_matrikl_nr INT NOT NULL,
   module_id INT NOT NULL,
