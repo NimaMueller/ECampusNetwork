@@ -6,6 +6,9 @@ CREATE TABLE IF NOT EXISTS students (
   name varchar(250) NOT NULL,
   first_name varchar(250) NOT NULL,
   dob DATE,
+  aktive_modules INTEGER ARRAY,
+  passed_modules INTEGER ARRAY,
+  failed_modules INTEGER ARRAY,
   PRIMARY KEY (matrikl_nr)
 );
 
