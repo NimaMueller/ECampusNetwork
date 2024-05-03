@@ -19,6 +19,7 @@ CREATE TABLE if NOT EXISTS courses (
     course_id INT NOT NUll,
     description VARCHAR(250) NOT NULL,
     degree VARCHAR(250) NOT NULL,
+    module_list INTEGER ARRAY,
     PRIMARY KEY (course_id)
 );
 
