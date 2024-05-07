@@ -1,15 +1,15 @@
 -- Creation of table
 CREATE TABLE IF NOT EXISTS students (
-  matrikl_nr INT NOT NULL,
+  matr_nr INT NOT NULL,
   student_course_id INT,
   module_course_id INT,
   name varchar(250) NOT NULL,
   first_name varchar(250) NOT NULL,
   dob DATE,
-  aktive_modules INTEGER ARRAY,
+  active_modules INTEGER ARRAY,
   passed_modules INTEGER ARRAY,
   failed_modules INTEGER ARRAY,
-  PRIMARY KEY (matrikl_nr)
+  PRIMARY KEY (matr_nr)
 );
 
 CREATE TABLE IF NOT EXISTS modules (
@@ -28,12 +28,12 @@ CREATE TABLE if NOT EXISTS courses (
 );
 
 CREATE TABLE if NOT EXISTS signUp (
-  student_matrikl_nr INT NOT NULL,
+  student_matr_nr INT NOT NULL,
   module_id INT NOT NULL,
   grade DOUBLE PRECISION,
   passed BOOLEAN,
   attempt INT NOT NULL,
-  PRIMARY KEY (student_matrikl_nr, module_id),
-  FOREIGN KEY (student_matrikl_nr) REFERENCES students(matrikl_nr),
+  PRIMARY KEY (student_matr_nr, module_id),
+  FOREIGN KEY (student_matr_nr) REFERENCES students(matr_nr),
   FOREIGN KEY (module_id) REFERENCES modules(module_id)
 );

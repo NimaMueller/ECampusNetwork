@@ -25,13 +25,13 @@ services:
       #       - ./postgres-data:/var/lib/postgresql/data
       - ./database/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
 
-  modulmanager-app:
-    image: modulmanager
+  modulemanager-app:
+    image: modulemanager
     restart: no
     build:
-      context: C:\Users\amaras\Modulmanager
+      context: C:\Users\lumueller\VSCodeProjects\Modulmanager
       dockerfile: Dockerfile
-    container_name: modulmanager-container
+    container_name: modulemanager-container
     ports:
       - "8080:8080"
     depends_on:
@@ -43,7 +43,7 @@ services:
     image: coursemanager
     restart: no
     build:
-      context: C:\Users\amaras\Coursemanager
+      context: C:\Users\lumueller\VSCodeProjects\Coursemanager
       dockerfile: Dockerfile
     container_name: coursemanager-container
     ports:
