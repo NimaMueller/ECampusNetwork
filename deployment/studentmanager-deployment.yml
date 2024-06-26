@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: studentmanager-deployment
+spec:
+  selector:
+    matchLabels:
+      app: studentmanager
+  template:
+    metadata:
+      labels:
+        app: studentmanager
+    spec:
+      containers:
+        - name: studentmanager-container
+          image: 'studentmanager:latest'
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: 500m
+          ports:
+            - containerPort: 8082
+          imagePullPolicy: Never
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: 'jdbc:postgresql://postgres-service:5432/eCampusDb'
+            - name: DB_USER
+              value: admin
+            - name: DB_PASSWORD
+              value: admin
+            - name: MODULE_MANAGER_HOST
+              value: 'http://modulemanager-service:8080'
+            - name: COURSE_MANAGER_HOST
+              value: 'http://coursemanager-service:8081'

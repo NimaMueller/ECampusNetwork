@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: modulemanager-deployment
+spec:
+  selector:
+    matchLabels:
+      app: modulemanager
+  template:
+    metadata:
+      labels:
+        app: modulemanager
+    spec:
+      containers:
+        - name: modulemanager-container
+          image: modulemanager:latest
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: Never
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: "jdbc:postgresql://postgres-service:5432/eCampusDb"
+            - name: DB_USER
+              value: "admin"
+            - name: DB_PASSWORD
+              value: "admin"

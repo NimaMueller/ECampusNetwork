@@ -59,11 +59,15 @@ services:
     build:
       context: C:\Users\lumueller\VSCodeProjects\Studentmanager
       dockerfile: Dockerfile
-    container_name: studentmanager-container
+    container_name: studentmanager-container  
+    environment:
+      MODULE_MANAGER_HOST: http://modulemanager-container:8080
+      COURSE_MANAGER_HOST: http://coursemanager-container:8081
+      #MODULE_MANAGER_HOST: http://127.0.0.1:8080
+      #COURSE_MANAGER_HOST: http://127.0.0.1:8081
     ports:
       - "8082:8082"
     depends_on:
       - postgres-app
     networks:
       - eCampusNetwork
-    
